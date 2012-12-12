@@ -5,19 +5,22 @@
 if ( file_exists( dirname( __FILE__ ) . '/local-config.php' ) ) {
 	define( 'WP_LOCAL_DEV', true );
 	include( dirname( __FILE__ ) . '/local-config.php' );
+	define( 'WP_CONTENT_URL', 'http://localhost/WordPress-Skeleton/content' );
 } else {
 	define( 'WP_LOCAL_DEV', false );
 	define( 'DB_NAME', '%%DB_NAME%%' );
 	define( 'DB_USER', '%%DB_USER%%' );
 	define( 'DB_PASSWORD', '%%DB_PASSWORD%%' );
 	define( 'DB_HOST', '%%DB_HOST%%' ); // Probably 'localhost'
+	define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
 }
 
 // ========================
 // Custom Content Directory
 // ========================
 define( 'WP_CONTENT_DIR', dirname( __FILE__ ) . '/content' );
-define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
+#define( 'WP_CONTENT_URL', 'http://localhost/WordPress-Skeleton/content' );
+#define( 'WP_CONTENT_URL', 'http://' . $_SERVER['HTTP_HOST'] . '/content' );
 
 // ================================================
 // You almost certainly do not want to change these
